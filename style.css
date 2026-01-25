@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #e6e6e6;
+}
+
+body {
+    background-color: #1d1d1d;
+    height: 100vh;
+    width: 100vw;
+
+    /* CENTERED LAYOUT */
+    display: flex;
+    justify-content: center;
+}
+
+/* MAIN GRID WRAPPER */
+.app-layout {
+    width: 100%;
+    max-width: 1600px;
+    padding: 0 40px;
+
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "nav main";
+
+    grid-template-columns: 260px 1fr;
+    grid-template-rows: 60px 1fr;
+}
+
+/* TOP BAR */
+header {
+    grid-area: header;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+/* SIDEBAR */
+/* gjør at grid faktisk har en fast høyde å forholde seg til */
+.app-layout {
+    height: 100vh;
+}
+
+/* NAV layout */
+nav {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 0;        /* viktig for scrolling i grid */
+    padding-bottom: 24px; /* gjør at footeren ligger litt høyere */
+}
+
+/* scroll-område */
+nav .nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    flex: 1;              /* tar plassen over footeren */
+    min-height: 0;        /* viktig for overflow */
+    overflow-y: auto;
+    scroll-behavior: smooth;
+
+    padding-right: 8px;   /* luft til scrollbar */
+}
+
+/* footer skal være under lista, men ikke klistra til bunnen */
+nav .nav-footer {
+    margin-top: 16px;     /* luft fra lista */
+    padding-top: 14px;
+    border-top: 1px solid #2a2a2a;
+    font-size: 12px;
+    color: #bdbdbd;
+}
+
+nav .nav-footer p {
+    margin-top: 6px;
+    color: #bdbdbd;
+}
+
+nav .nav-footer a {
+    color: #e6e6e6;
+    text-decoration: none;
+}
+
+nav .nav-footer a:hover {
+    text-decoration: underline;
+}
+nav .nav-list {
+    padding-top: 16px;
+    padding-bottom: 12px;
+}
+
+
+/* hover-stil på lenker */
+nav .nav-list a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #d9d9d9;
+
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+
+    transition: background 140ms ease, border-color 140ms ease, transform 140ms ease;
+}
+
+nav .nav-list a:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.10);
+    transform: translateY(-1px);
+}
+
+nav .nav-list a:active {
+    transform: translateY(0px);
+}
+
+/* scrollbar (Chromium/Edge/Safari) */
+nav .nav-list::-webkit-scrollbar {
+    width: 10px;
+}
+
+nav .nav-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+nav .nav-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+}
+
+nav .nav-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.20);
+    border: 3px solid transparent;
+    background-clip: content-box;
+}
+
+/* scrollbar (Firefox) */
+nav .nav-list {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+
+
+/* CONTENT */
+main {
+    grid-area: main;
+    padding: 32px 40px;
+}
+header input,
+header input[type="text"],
+header input[type="search"] {
+    margin: 0;
+    padding: 10px 12px;
+    height: 38px;
+    width: min(420px, 45vw);
+
+    background: #121212;
+    color: #e6e6e6;
+
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+
+    outline: none;
+}
+
+header input::placeholder {
+    color: #9aa0a6;
+}
+
+header input:focus {
+    border-color: #3a3a3a;
+}
