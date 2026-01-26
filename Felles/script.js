@@ -11,7 +11,7 @@ function activelink() {
     });
 }
 
-function testSearch() {
+function search() {
     const input = document.getElementById("search-input").value.toLowerCase();
 
     /* NAV */
