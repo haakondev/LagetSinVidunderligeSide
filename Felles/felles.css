@@ -229,8 +229,15 @@ header input:focus {
 a {
     text-decoration: none;
 }
-.discord-link {
-    background: #5865F2 !important;
-    font-weight: 700;
-    text-align: center;
+
+#logo-title-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+#logo-title-container img {
+    height: 38px;
+    width: 38px;
 }
