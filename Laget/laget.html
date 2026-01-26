@@ -3,67 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>Laget</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="../script.js" defer></script>
+    <link rel="icon" type="image/png" href="../Felles/favicon.webp">
+    <link rel="stylesheet" href="../Felles/felles.css">
+    <link rel="stylesheet" href="laget.css">
+    <script src="../Felles/script.js" defer></script>
 
 </head>
 <body>
 
 <div class="app-layout">
     <header>
-        <h1>Laget</h1>
-        <input type="search" placeholder="Søk..." aria-label="Search">
-
     </header>
     <nav>
-        <ul id="nav-ul" class="nav-list">
-        </ul>
-
-        <div class="nav-footer">
-            <p>&copy; 2026 Laget. All rights reserved.</p>
-            <p>Designet og Utviklet av <a href="https://nordvekst.com">Nordvekst</a></p>
-        </div>
     </nav>
-
-
 
     <main>
         <h1>Laget roster</h1>
-        <div class="grid-wrapper">
+        <div class="grid-wrapper" id="laget-roster">
 
-            <section class="laget-shoutout">
-                <h1><a href="https://evki.dataskyen.no/">Even sin schpa nettside</a></h1>
-                <iframe src="https://evki.dataskyen.no/" loading="lazy"></iframe>
-            </section>
 
-            <section class="laget-shoutout">
-                <h1><a href="https://jlin.dataskyen.no/">JJ homie sin nettside</a></h1>
-                <iframe src="https://jlin.dataskyen.no/"></iframe>
-            </section>
-
-            <section class="laget-shoutout">
-                <h1><a href="https://adze.dataskyen.no/">AZ sin drømmenettside</a></h1>
-                <iframe src="https://adze.dataskyen.no/"></iframe>
-            </section>
-
-            <section class="laget-shoutout">
-                <h1><a href="https://horf.dataskyen.no/">Ginge sin gullgryte</a></h1>
-                <iframe src="https://horf.dataskyen.no/"></iframe>
-            </section>
-
-            <section class="laget-shoutout">
-                <h1><a href="https://benr.dataskyen.no/">Benjamin sin I3</a></h1>
-                <iframe src="https://benr.dataskyen.no/"></iframe>
-            </section>
-
-            <section class="laget-shoutout">
-                <h1><a href="https://eies.dataskyen.no/">Eivind sin burgersjappe</a></h1>
-                <iframe src="https://eies.dataskyen.no/"></iframe>
-            </section>
 
         </div>
 
     </main>
+
+    <script>
+
+        fetch("laget.json")
+            .then(res => res.json())
+            .then(data => {
+
+                const roster = document.getElementById("laget-roster");
+
+                for (const [text, href] of Object.entries(data)) {
+
+                    const section = document.createElement("section");
+                    section.className = "laget-shoutout main-sections";
+
+
+                    const h1 = document.createElement("h1");
+                    const a = document.createElement("a");
+
+                    a.href = href;
+                    a.textContent = text;
+                    h1.appendChild(a);
+                    const frame = document.createElement("iframe");
+                    frame.src = href;
+                    section.appendChild(h1);
+                    section.appendChild(frame);
+                    roster.appendChild(section);
+                }
+            })
+            .catch(err => console.error("Kunne ikke laste JSON:", err));
+
+    </script>
 
 </div>
 </body>

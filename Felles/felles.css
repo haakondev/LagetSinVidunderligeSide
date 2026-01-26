@@ -6,17 +6,20 @@
     color: #e6e6e6;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     background-color: #1d1d1d;
-    height: 100vh;
-    width: 100vw;
+    margin: 0;
+    overflow: hidden;
 
-    /* CENTERED LAYOUT */
     display: flex;
     justify-content: center;
 }
 
-/* MAIN GRID WRAPPER */
+/* LAYOUT */
 .app-layout {
     width: 100%;
     max-width: 1600px;
@@ -29,52 +32,56 @@ body {
 
     grid-template-columns: 260px 1fr;
     grid-template-rows: 60px 1fr;
+
+    height: 100vh;
+    min-height: 0;
 }
 
 /* TOP BAR */
 header {
     grid-area: header;
+
     padding: 0 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     border-bottom: 1px solid #2a2a2a;
 }
 
 /* SIDEBAR */
-/* gjør at grid faktisk har en fast høyde å forholde seg til */
-.app-layout {
-    height: 100vh;
-}
-
-/* NAV layout */
 nav {
+    grid-area: nav;
+
     display: flex;
     flex-direction: column;
 
-    min-height: 0;        /* viktig for scrolling i grid */
-    padding-bottom: 24px; /* gjør at footeren ligger litt høyere */
+    min-height: 0;
+    padding-bottom: 24px;
 }
 
-/* scroll-område */
+/* NAV LIST SCROLL AREA */
 nav .nav-list {
     list-style: none;
+
     display: flex;
     flex-direction: column;
     gap: 6px;
 
-    flex: 1;              /* tar plassen over footeren */
-    min-height: 0;        /* viktig for overflow */
+    flex: 1;
+    min-height: 0;
+
     overflow-y: auto;
     scroll-behavior: smooth;
 
-    padding-right: 8px;   /* luft til scrollbar */
+    padding: 16px 8px 12px 0;
 }
 
-/* footer skal være under lista, men ikke klistra til bunnen */
+/* NAV FOOTER */
 nav .nav-footer {
-    margin-top: 16px;     /* luft fra lista */
+    margin-top: 16px;
     padding-top: 14px;
+
     border-top: 1px solid #2a2a2a;
     font-size: 12px;
     color: #bdbdbd;
@@ -93,24 +100,22 @@ nav .nav-footer a {
 nav .nav-footer a:hover {
     text-decoration: underline;
 }
-nav .nav-list {
-    padding-top: 16px;
-    padding-bottom: 12px;
-}
 
-
-/* hover-stil på lenker */
+/* NAV LINKS */
 nav .nav-list a {
     display: block;
+
     padding: 10px 12px;
     border-radius: 10px;
+
     text-decoration: none;
     color: #d9d9d9;
-
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.04);
 
-    transition: background 140ms ease, border-color 140ms ease, transform 140ms ease;
+    transition: background 140ms ease,
+    border-color 140ms ease,
+    transform 140ms ease;
 }
 
 nav .nav-list a:hover {
@@ -123,7 +128,13 @@ nav .nav-list a:active {
     transform: translateY(0px);
 }
 
-/* scrollbar (Chromium/Edge/Safari) */
+/* ACTIVE LINK */
+nav .nav-list a.active {
+    color: #bb86fc;
+    border-color: rgba(187, 134, 252, 0.4);
+}
+
+/* NAV SCROLLBAR (CHROMIUM) */
 nav .nav-list::-webkit-scrollbar {
     width: 10px;
 }
@@ -141,27 +152,58 @@ nav .nav-list::-webkit-scrollbar-thumb {
 
 nav .nav-list::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.20);
-    border: 3px solid transparent;
-    background-clip: content-box;
 }
 
-/* scrollbar (Firefox) */
+/* NAV SCROLLBAR (FIREFOX) */
 nav .nav-list {
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
 }
 
-
-
-/* CONTENT */
+/* MAIN GENERELT */
 main {
     grid-area: main;
-    padding: 32px 40px;
+
+    padding: 32px 40px 32px 40px;
+
+    overflow-y: auto;
+    min-height: 0;
+
+    scroll-behavior: smooth;
+
+    padding-right: 32px;
 }
+
+/* MAIN SCROLLBAR (CHROMIUM) */
+main::-webkit-scrollbar {
+    width: 10px;
+}
+
+main::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+main::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+}
+
+main::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.20);
+}
+
+/* MAIN SCROLLBAR (FIREFOX) */
+main {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+/* HEADER INPUT */
 header input,
 header input[type="text"],
 header input[type="search"] {
-    margin: 0;
     padding: 10px 12px;
     height: 38px;
     width: min(420px, 45vw);
@@ -181,4 +223,14 @@ header input::placeholder {
 
 header input:focus {
     border-color: #3a3a3a;
+}
+
+/* GENERAL */
+a {
+    text-decoration: none;
+}
+.discord-link {
+    background: #5865F2 !important;
+    font-weight: 700;
+    text-align: center;
 }
