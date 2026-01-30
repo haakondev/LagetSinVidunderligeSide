@@ -18,7 +18,7 @@
     </nav>
 
     <main>
-        <h1>Laget roster</h1>
+        <h1 class="main-title">Laget roster</h1>
         <div class="grid-wrapper" id="laget-roster">
 
 
@@ -53,6 +53,8 @@
                     section.appendChild(h1);
                     section.appendChild(frame);
                     roster.appendChild(section);
+
+
                 }
             })
             .catch(err => console.error("Kunne ikke laste JSON:", err));
