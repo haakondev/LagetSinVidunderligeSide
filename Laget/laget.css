@@ -52,23 +52,3 @@ main h1 {
     overflow: auto;
     scroll-behavior: smooth;
 }
-
-/* IFRAME SCROLLBAR (best effort) */
-.laget-shoutout iframe::-webkit-scrollbar {
-    width: 10px;
-}
-
-.laget-shoutout iframe::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.laget-shoutout iframe::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.12);
-    border-radius: 999px;
-    border: 3px solid transparent;
-    background-clip: content-box;
-}
-
-.laget-shoutout iframe::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.20);
-}
