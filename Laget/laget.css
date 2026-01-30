@@ -1,13 +1,4 @@
-main {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
 
-main h1 {
-    margin: 2rem;
-    text-align: center;
-}
 
 /* GRID */
 .grid-wrapper {
