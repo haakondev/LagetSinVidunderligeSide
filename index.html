@@ -17,7 +17,64 @@
     </nav>
 
     <main>
-        <p>Velkommen til laget</p>
+        <h1 class="main-title">Velkommen til laget</h1>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Hva</th>
+                <th>Fil / mappe</th>
+                <th>Hva det gjør</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Startside</td>
+                <td><code>index.html</code></td>
+                <td>Hovedinngang til nettsiden (bruker felles CSS/JS og tomme <code>&lt;header&gt;</code>/<code>&lt;nav&gt;</code> som fylles inn ved last).</td>
+            </tr>
+            <tr>
+                <td>Felles layout</td>
+                <td><code>Felles/header.html</code></td>
+                <td>Innhold som injiseres i <code>&lt;header&gt;</code> (logo/tittel + søkefelt).</td>
+            </tr>
+            <tr>
+                <td>Felles navigasjon</td>
+                <td><code>Felles/nav.html</code></td>
+                <td>Navigasjonscontainer (<code>&lt;ul id="nav-ul"&gt;</code>) + footer. Lenker fylles inn fra <code>paths.json</code>.</td>
+            </tr>
+            <tr>
+                <td>Navigasjonsdata</td>
+                <td><code>Felles/paths.json</code></td>
+                <td>Tekst → URL for navigasjon (brukes til å bygge menyen dynamisk).</td>
+            </tr>
+            <tr>
+                <td>Felles script</td>
+                <td><code>Felles/script.js</code></td>
+                <td>Laster inn header/nav, bygger meny fra JSON, setter “active”-lenke, og filtrerer via søk.</td>
+            </tr>
+            <tr>
+                <td>Felles styling</td>
+                <td><code>Felles/felles.css</code></td>
+                <td>Global styling + layout (grid med header/nav/main, scrollbars, input-stil, nav-stiler).</td>
+            </tr>
+            <tr>
+                <td>“Laget”-side</td>
+                <td><code>Laget/laget.html</code></td>
+                <td>Side som bygger “roster” ved å lese <code>laget.json</code> og lage kort med lenke + iframe.</td>
+            </tr>
+            <tr>
+                <td>“Laget” styling</td>
+                <td><code>Laget/laget.css</code></td>
+                <td>Styling for laget sin <strong>roster</strong>-side.</td>
+            </tr>
+            <tr>
+                <td>“Laget” data</td>
+                <td><code>Laget/laget.json</code></td>
+                <td><code>"Navn": "URL"</code> som brukes til å vise frem medlemmene av laget, dynamisk slik at man ikke behøver å legge inn alle seksjonene manuelt i hver eneste <code>.html</code> side.</td>
+            </tr>
+            </tbody>
+        </table>
     </main>
 
 </div>
