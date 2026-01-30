@@ -32,7 +32,7 @@ function upsertNavNoResults(list, show) {
             const li = document.createElement("li");
             li.id = "nav-no-results";
             li.textContent = "Ingen søkeresultater";
-            list.appendChild(li);
+            list.insertBefore(li, list.childNodes[0]);
         }
     } else {
         if (existing) existing.remove();
@@ -47,7 +47,7 @@ function upsertMainNoResults(main, show) {
             const p = document.createElement("p");
             p.id = "main-no-results";
             p.textContent = "Ingen søkeresultater";
-            main.appendChild(p);
+            main.insertBefore(p, main.childNodes[0]);
             try {
                 const tableHeader = document.getElementById("table-header");
                 tableHeader.style.display = "none";
