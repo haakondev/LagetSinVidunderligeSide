@@ -1,24 +1,40 @@
+main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 main h1 {
     margin: 2rem;
     text-align: center;
 }
 
-/* GRID CONTENT */
+/* GRID */
 .grid-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 24px;
+    padding: 0 24px 24px;
+    flex: 1;
+    align-items: stretch;
 }
 
-/* SHOUTOUT CARDS */
+/* CARDS */
 .laget-shoutout {
     background: #1a1a1a;
     border-radius: 14px;
     padding: 16px;
 
     box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-    transition: transform 0.2s ease,
-    box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    min-height: 380px;
+
+    display: flex;
+    flex-direction: column;
+
+    /* viktig for at iframe kan vokse uten rare gaps */
+    max-height: 70vh;
 }
 
 .laget-shoutout:hover {
@@ -43,12 +59,14 @@ main h1 {
 /* IFRAME */
 .laget-shoutout iframe {
     width: 100%;
-    height: 420px;
-
     border: 0;
     border-radius: 10px;
     background: #111;
 
+    min-height: 420px;
+    flex: 1;
+
     overflow: auto;
     scroll-behavior: smooth;
 }
+
