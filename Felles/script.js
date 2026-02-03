@@ -1,8 +1,8 @@
 function getBasePath() {
     const parts = window.location.pathname.split("/").filter(Boolean);
 
-    if (parts.length > 0 && parts[0].toLowerCase() === "ghunettside") {
-        return "/GHUnettside";
+    if (parts.length > 0 && parts[0].toLowerCase() === "lagetsinvidunderligeside") {
+        return "/LagetSinVidunderligeSide";
     }
     return "";
 }
@@ -15,10 +15,15 @@ function activelink() {
 
     navLinks.forEach(link => {
         const linkPath = new URL(link.href).pathname;
-
         if (currentPath === linkPath) {
-            link.className = "active";
+            link.classList.add("active");
+        } else if (
+            (currentPath === "/LagetSinVidunderligeSide/" && linkPath === "/LagetSinVidunderligeSide/index.html") ||
+            (currentPath === "/" && linkPath === "/index.html")
+        ) {
+            link.classList.add("active");
         }
+
     });
 }
 
