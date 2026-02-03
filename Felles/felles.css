@@ -22,7 +22,11 @@ html, body {
 }
 
 body {
-    background-color: #1d1d1d;
+    background:
+            radial-gradient(900px 500px at 20% 10%, rgba(124,92,255,0.25), transparent 55%),
+            radial-gradient(900px 500px at 80% 0%, rgba(55,212,255,0.18), transparent 55%),
+            radial-gradient(900px 500px at 50% 110%, rgba(124,92,255,0.14), transparent 60%),
+            #1d1d1d;
     margin: 0;
     overflow: hidden;
 
@@ -121,8 +125,6 @@ nav .nav-list a {
 
     text-decoration: none;
     color: #d9d9d9;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.04);
 
     transition: background 140ms ease,
     border-color 140ms ease,
@@ -131,7 +133,7 @@ nav .nav-list a {
 
 nav .nav-list a:hover {
     background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.10);
+    outline: rgba(255, 255, 255, 0.10) 1px solid;
     transform: translateY(-1px);
 }
 
@@ -142,7 +144,7 @@ nav .nav-list a:active {
 /* ACTIVE LINK */
 nav .nav-list a.active {
     color: #bb86fc;
-    border-color: rgba(187, 134, 252, 0.4);
+    background: rgba(255, 255, 255, 0.06);
 }
 
 /* NAV SCROLLBAR (CHROMIUM) */

@@ -12,12 +12,13 @@
 
 /* CARDS */
 .laget-shoutout {
-    background: #1a1a1a;
-    border-radius: 14px;
-    padding: 16px;
-
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 12px 12px 10px;
+    line-height: 1.35;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 
     min-height: 380px;
 
