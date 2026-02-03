@@ -9,6 +9,7 @@ function getBasePath() {
 
 const BASE = getBasePath();
 
+
 function activelink() {
     const currentPath = window.location.pathname;
     const navLinks = document.querySelectorAll("nav ul li a");
@@ -17,15 +18,16 @@ function activelink() {
         const linkPath = new URL(link.href).pathname;
         if (currentPath === linkPath) {
             link.classList.add("active");
-        } else if (
-            (currentPath === "/LagetSinVidunderligeSide/" && linkPath === "/LagetSinVidunderligeSide/index.html") ||
-            (currentPath === "/" && linkPath === "/index.html")
-        ) {
+        } else if (currentPath == "/" && linkPath == "/index.html") {
             link.classList.add("active");
+        } else if (currentPath == "/LagetSinVidunderligeSide/" && linkPath == "/LagetSinVidunderligeSide/index.html") {
+            link.classList.add("active");
+        } else {
+            link.classList.remove("active");
         }
-
     });
 }
+
 
 /* ---------- NO RESULT HELPERS ---------- */
 
